@@ -10,5 +10,5 @@
         "comments": "off",
         "strings": "on"
     },
-    "prisma.pinToPrisma6": true
+    "prisma.pinToPrisma6": false
 }

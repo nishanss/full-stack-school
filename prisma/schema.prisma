@@ -5,7 +5,6 @@ generator client {
 
 datasource db {
   provider = "postgresql"
-  url      = env("DATABASE_URL")
 }
 
 model Admin {
@@ -77,8 +76,8 @@ model Class {
   name     String @unique
   capacity Int
 
-  supervisorId  String
-  supervisor    Teacher        @relation(fields: [supervisorId], references: [id])
+  supervisorId  String?
+  supervisor    Teacher?        @relation(fields: [supervisorId], references: [id])
   lessons       Lesson[]
   students      Student[]
   gradeId       Int

@@ -2,21 +2,12 @@ import FormModal from "@/components/FormModal";
 import Pagination from "@/components/Pagination";
 import Table from "@/components/Table";
 import TableSearch from "@/components/TableSearch";
-import { role, studentsData, teachersData } from "@/lib/data";
+import { Teacher } from "@/generated/prisma/client";
+import { role, teachersData } from "@/lib/data";
 import Image from "next/image";
 import Link from "next/link";
 
-type Teacher = {
-  id: number;
-  teacherId: string;
-  name: string;
-  email?: string;
-  photo: string;
-  phone: string;
-  subjects: string[];
-  classes: string[];
-  address: string;
-};
+
 
 const columns = [
   {
@@ -62,7 +53,7 @@ const TeacherListPage = () => {
     >
       <td className="flex items-center gap-4 p-4">
         <Image
-          src={item.photo}
+          src={item.img || "/noAvatar.png"}
           alt=""
           width={40}
           height={40}
