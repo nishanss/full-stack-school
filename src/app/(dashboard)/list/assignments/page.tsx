@@ -1,7 +1,13 @@
 import Pagination from "@/components/Pagination";
 import Table from "@/components/Table";
 import TableSearch from "@/components/TableSearch";
-import { Assignment, Class, Prisma, Subject, Teacher } from "@/generated/prisma/client";
+import {
+  Assignment,
+  Class,
+  Prisma,
+  Subject,
+  Teacher,
+} from "@/generated/prisma/client";
 import { role, assignmentsData } from "@/lib/data";
 import { prisma } from "@/lib/prisma";
 import { ITEM_PER_PAGE } from "@/lib/settings";
@@ -107,6 +113,8 @@ const AssignmentListPage = async ({
                 name: { contains: value, mode: "insensitive" },
               },
             };
+            break;
+          default:
             break;
         }
       }

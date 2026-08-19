@@ -111,6 +111,8 @@ const ExamListPage = async ({
               },
             };
             break;
+          default:
+            break;
         }
       }
     }
@@ -166,7 +168,7 @@ const ExamListPage = async ({
       {/* LIST */}
       <Table columns={columns} renderRow={renderRow} data={data} />
       {/* PAGINATION */}
-      <Pagination page={p} count={count}/>
+      <Pagination page={p} count={count} />
     </div>
   );
 };
