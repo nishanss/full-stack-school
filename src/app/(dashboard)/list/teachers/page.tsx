@@ -116,17 +116,19 @@ const TeacherListPage = async ({
     for (const [key, value] of Object.entries(queryParams)) {
       if (value !== undefined) {
         switch (key) {
-          case "classId": 
+          case "classId":
             query.lessons = {
               some: {
                 classId: parseInt(value),
               },
             };
             break;
-          
-          case "search": 
-            query.name = { contains: value, mode: "insensitive" }
-          
+
+          case "search":
+            query.name = { contains: value, mode: "insensitive" };
+            break;
+          default:
+            break;
         }
       }
     }
@@ -143,7 +145,7 @@ const TeacherListPage = async ({
       skip: ITEM_PER_PAGE * (p - 1),
     }),
     prisma.teacher.count({
-      where: query
+      where: query,
     }),
   ]);
 
